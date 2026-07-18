@@ -1,0 +1,49 @@
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local secrets and credentials
+.env
+.env.*
+*.key
+*.pem
+
+# Models and training checkpoints
+checkpoint-*/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Private datasets and media
+data/
+datasets/
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.flac
+
+# Generated outputs, logs, and experiment tracking
+output/
+outputs/
+eval_results/
+logs/
+*.log
+*.out
+wandb/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
