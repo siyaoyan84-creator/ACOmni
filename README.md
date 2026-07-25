@@ -98,12 +98,9 @@ Defaults are temperature `0`, maximum output length `16`, and a normalized
 0–5 score. The exact prompt and score parser are public in `acor/rewards.py`.
 
 The paper configuration uses 8 generations, completion length 768, 16 video
-frames, audio input, micro-batch size 1, and LoRA dropout 0.05. Stage-specific
-reward weights are recorded under `configs/`.
-
-```bash
-bash scripts/train/run_acor_ablation_A3_full.sh
-```
+frames, audio input, micro-batch size 1, and LoRA dropout 0.05. The formal GRPO
+entry point is `src/open_r1/grpo_qwenomni_acor_er.py`, and stage-specific
+settings are recorded under `configs/`.
 
 ## ACOR variants and ACOR-A.R.
 

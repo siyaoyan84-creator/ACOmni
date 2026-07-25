@@ -875,9 +875,9 @@ def main(script_args, training_args, model_args):
         print(f"[GRPO_REWARD_FUNCS_NORMALIZE] raw_reward_funcs = {raw_reward_funcs}", flush=True)
         print(f"[GRPO_REWARD_FUNCS_NORMALIZE] normalized_reward_funcs = {normalized_reward_funcs}", flush=True)
 
-    # Reward registry intentionally keeps the legacy context/reasoning aliases,
-    # but A0-A3 only enable format, accuracy, affective_context, and emotion_consistency.
-    # Legacy context/reasoning rewards remain available for non-A0-A3 runs.
+    # Public ACOR training enables format, accuracy, affective_context, and
+    # emotion_consistency. Legacy context/reasoning rewards remain available
+    # for compatible upstream runs.
     reward_funcs_registry = {
         "accuracy": vlm_module_cls.accuracy_reward,
         "format": vlm_module_cls.format_reward,
