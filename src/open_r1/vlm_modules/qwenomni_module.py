@@ -16,18 +16,18 @@ import requests
 import re
 
 
-url = os.environ.get("API", "")
-token = os.environ.get("API_KEY", "")
+url = os.environ.get("LLM_JUDGE_API_BASE", "")
+token = os.environ.get("LLM_JUDGE_API_KEY", "")
 
 def gpt_api(prompt, model_name):
     # Re-read environment variables inside function to avoid stale values
-    url = os.environ.get("API", "")
-    token = os.environ.get("API_KEY", "")
+    url = os.environ.get("LLM_JUDGE_API_BASE", "")
+    token = os.environ.get("LLM_JUDGE_API_KEY", "")
 
     if not url:
-        raise RuntimeError("Environment variable 'API' is not set. Please set it before calling gpt_api.")
+        raise RuntimeError("Environment variable 'LLM_JUDGE_API_BASE' is not set. Please set it before calling gpt_api.")
     if not token:
-        raise RuntimeError("Environment variable 'API_KEY' is not set. Please set it before calling gpt_api.")
+        raise RuntimeError("Environment variable 'LLM_JUDGE_API_KEY' is not set. Please set it before calling gpt_api.")
 
     messages = [
                 {
