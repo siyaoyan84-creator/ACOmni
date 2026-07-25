@@ -1,0 +1,10 @@
+{
+  "Face": ["face", "facial", "expression", "smile", "frown", "brow", "eyebrow", "mouth", "laugh"],
+  "Voice": ["audio", "voice", "vocal", "tone", "pitch", "speaking", "speech", "pace", "volume"],
+  "Gaze": ["gaze", "eye contact", "eyes", "looking", "staring", "squint"],
+  "Gesture": ["gesture", "hand", "posture", "body language", "movement", "nod", "lean", "shrug", "pointing"],
+  "Hesitation": ["hesitate", "pause", "uncertain", "unsure", "stutter", "stammer", "slowly", "nervous"],
+  "Interaction": ["interaction", "conversation", "respond", "reaction", "turn-taking", "relationship", "speaker", "listener", "social"],
+  "EmotionReason": ["because", "suggest", "indicate", "therefore", "likely", "seems", "appears", "emotion", "angry", "happy", "sad", "fear", "tense"],
+  "Inconsistency": ["inconsistent", "mismatch", "contradict", "contrast", "however", "although", "despite", "rather than"]
+}

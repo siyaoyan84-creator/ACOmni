@@ -1,0 +1,15 @@
+stage: stage2b_diagnostic
+num_generations: 8
+max_completion_length: 768
+video_frames: 16
+audio_enabled: true
+micro_batch_size: 1
+lora_dropout: 0.05
+reward_functions:
+  - format
+  - accuracy
+  - affective_context
+  - emotion_consistency
+reward_weights:
+  affective_context: 0.15
+  emotion_consistency: 0.15

@@ -38,10 +38,10 @@ export GRPO_AFFECTIVE_CONTEXT_REWARD_WEIGHT=1.0
 export GRPO_EMOTION_CONSISTENCY_REWARD_WEIGHT=0.0
 
 # API configuration
-export API_KEY="${API_KEY:-}"
+export LLM_JUDGE_API_KEY="${LLM_JUDGE_API_KEY:-}"
 
-if [ -z "${API:-}" ]; then
-    echo "ERROR: API environment variable is not set"
+if [ -z "${LLM_JUDGE_API_BASE:-}" ]; then
+    echo "ERROR: LLM_JUDGE_API_BASE environment variable is not set"
     echo "Please set API endpoint for context/reasoning reward LLM judge"
     exit 1
 fi
