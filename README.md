@@ -1,9 +1,9 @@
-# ACOR: Affective Context-Aware Omni-Modal Reasoning
+# ACOmni: Affective Context-Aware Omni-Modal Reasoning
 
-Official implementation of **ACOR: Affective Context-Aware Omni-Modal
+Official implementation of **ACOmni: Affective Context-Aware Omni-Modal
 Reasoning for Emotion-Centric Human Understanding**.
 
-ACOR extends structured omni-modal reasoning with an affective `<context>`
+ACOmni extends structured omni-modal reasoning with an affective `<context>`
 stage, two emotion-aware rewards, staged GRPO training, and adapter
 interpolation/repair. The public release contains code only: no datasets,
 model weights, checkpoints, evaluation outputs, logs, or API credentials.
@@ -12,7 +12,7 @@ model weights, checkpoints, evaluation outputs, logs, or API credentials.
 
 1. Affective-context SFT with `<context><think><answer>` targets.
 2. Format, accuracy, affective-context, and Emotion Category Consistency rewards.
-3. Construction of ACOR-Balanced, ACOR-Affective, ACOR-Repair, and ACOR-A.R.
+3. Construction of ACOmni-Balanced, ACOmni-Affective, ACOmni-Repair, and ACOmni-A.R.
 4. MER2024 output parsing and metrics.
 5. IntentBench, Daily-Omni, and WorldSense evaluation through the retained
    HumanOmniV2-compatible evaluator.
@@ -20,7 +20,7 @@ model weights, checkpoints, evaluation outputs, logs, or API credentials.
 ## Repository structure
 
 ```text
-acor/                 prompts, parsers, rewards, adapter utilities
+acomni/                 prompts, parsers, rewards, adapter utilities
 training/             adapter interpolation and soup entrypoint
 configs/              SFT/GRPO/repair settings and model manifest
 evaluation/           shared metrics and MER2024 evaluation
@@ -50,7 +50,7 @@ Set local paths through environment variables:
 
 ```bash
 export BASE_MODEL=/path/to/Qwen2.5-Omni-7B
-export SFT_CHECKPOINT=/path/to/acor-sft
+export SFT_CHECKPOINT=/path/to/acomni-sft
 export DATA_ROOT=/path/to/training-data
 export OUTPUT_ROOT=/path/to/output
 export INTENTBENCH_ROOT=/path/to/IntentBench
@@ -62,7 +62,7 @@ Raw datasets are not redistributed.
 
 ## Affective-context SFT
 
-`acor/prompts.py` exposes `build_affective_prompt`,
+`acomni/prompts.py` exposes `build_affective_prompt`,
 `build_structured_target`, and `format_sft_sample`. The retained training
 integration is in `src/open_r1/sft.py`.
 
@@ -72,7 +72,7 @@ bash scripts/train/run_sft_qwenomni.sh
 
 ## GRPO and rewards
 
-The dependency-light public reward API is in `acor/rewards.py`:
+The dependency-light public reward API is in `acomni/rewards.py`:
 
 - `format_reward`
 - `accuracy_reward`
@@ -95,29 +95,29 @@ export LLM_JUDGE_MODEL=qwen-plus
 ```
 
 Defaults are temperature `0`, maximum output length `16`, and a normalized
-0–5 score. The exact prompt and score parser are public in `acor/rewards.py`.
+0–5 score. The exact prompt and score parser are public in `acomni/rewards.py`.
 
 The paper configuration uses 8 generations, completion length 768, 16 video
 frames, audio input, micro-batch size 1, and LoRA dropout 0.05. The formal GRPO
-entry point is `src/open_r1/grpo_qwenomni_acor_er.py`, and stage-specific
+entry point is `src/open_r1/grpo_qwenomni_acomni_er.py`, and stage-specific
 settings are recorded under `configs/`.
 
-## ACOR variants and ACOR-A.R.
+## ACOmni variants and ACOmni-A.R.
 
 The verified lineage is recorded in `configs/model_manifest.yaml`:
 
-- ACOR-Balanced: emotion-preserving checkpoint B500.
-- ACOR-Affective: B500/B700 adapter interpolation with `alpha=0.20`.
-- ACOR-Repair: 50-step anti-regression run; checkpoint 20 selected.
-- ACOR-A.R.: interpolation of ACOR-Affective and repair checkpoint 20 with
+- ACOmni-Balanced: emotion-preserving checkpoint B500.
+- ACOmni-Affective: B500/B700 adapter interpolation with `alpha=0.20`.
+- ACOmni-Repair: 50-step anti-regression run; checkpoint 20 selected.
+- ACOmni-A.R.: interpolation of ACOmni-Affective and repair checkpoint 20 with
   `lambda=0.25` (`pair_alpha20_repair20_lam025`).
 
 ```bash
 python training/interpolate_and_soup.py interpolate \
-  --source-a /path/to/ACOR-Affective \
+  --source-a /path/to/ACOmni-Affective \
   --source-b /path/to/repair/checkpoint-20 \
   --alpha 0.25 \
-  --output /path/to/ACOR-A.R.
+  --output /path/to/ACOmni-A.R.
 ```
 
 No full 7B weights are required; compatible LoRA adapters are sufficient.
@@ -165,4 +165,4 @@ datasets follow their own licenses.
 
 ## Citation
 
-The official ACOR citation will be added when the paper metadata is public.
+The official ACOmni citation will be added when the paper metadata is public.

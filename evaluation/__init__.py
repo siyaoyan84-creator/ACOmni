@@ -1,1 +1,1 @@
-"""ACOR evaluation helpers."""
+"""ACOmni evaluation helpers."""

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-: "${REPAIR_START_CHECKPOINT:?Set REPAIR_START_CHECKPOINT to ACOR-Affective}"
+: "${REPAIR_START_CHECKPOINT:?Set REPAIR_START_CHECKPOINT to ACOmni-Affective}"
 : "${BASE_MODEL:?Set BASE_MODEL}"
 : "${REPAIR_DATA_CONFIG:?Set REPAIR_DATA_CONFIG}"
 : "${DATA_ROOT:?Set DATA_ROOT}"
@@ -10,8 +10,8 @@ set -euo pipefail
 : "${LLM_JUDGE_API_KEY:?Set LLM_JUDGE_API_KEY}"
 
 torchrun --nproc_per_node "${NPROC_PER_NODE:-1}" \
-  src/open_r1/grpo_qwenomni_acor_er.py \
-  --output_dir "${OUTPUT_ROOT}/acor_repair" \
+  src/open_r1/grpo_qwenomni_acomni_er.py \
+  --output_dir "${OUTPUT_ROOT}/acomni_repair" \
   --model_name_or_path "$REPAIR_START_CHECKPOINT" \
   --processor_name_or_path "$BASE_MODEL" \
   --dataset_name "$REPAIR_DATA_CONFIG" \

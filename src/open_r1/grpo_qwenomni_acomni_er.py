@@ -875,7 +875,7 @@ def main(script_args, training_args, model_args):
         print(f"[GRPO_REWARD_FUNCS_NORMALIZE] raw_reward_funcs = {raw_reward_funcs}", flush=True)
         print(f"[GRPO_REWARD_FUNCS_NORMALIZE] normalized_reward_funcs = {normalized_reward_funcs}", flush=True)
 
-    # Public ACOR training enables format, accuracy, affective_context, and
+    # Public ACOmni training enables format, accuracy, affective_context, and
     # emotion_consistency. Legacy context/reasoning rewards remain available
     # for compatible upstream runs.
     reward_funcs_registry = {
@@ -1335,8 +1335,8 @@ def main(script_args, training_args, model_args):
             path_is_under_output_dir = False
             try:
                 resume_path_abs = resume_path.resolve()
-                # Check if path contains ACOR-public/output
-                if "ACOR-public/output" in str(resume_path_abs):
+                # Check if path contains ACOmni-public/output
+                if "ACOmni-public/output" in str(resume_path_abs):
                     path_is_under_output_dir = True
                 # Check if path is under OUTPUT_DIR
                 elif output_dir:

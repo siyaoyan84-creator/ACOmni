@@ -1,4 +1,4 @@
-"""Dependency-light public interfaces for ACOR rewards.
+"""Dependency-light public interfaces for ACOmni rewards.
 
 The paper term *Emotion Category Consistency Reward* corresponds to
 ``emotion_consistency_reward``. The training entrypoint calls the original

@@ -1,4 +1,4 @@
-# ACOR SFT training entrypoint.
+# ACOmni SFT training entrypoint.
 # Required: OUTPUT_ROOT.
 # Project paths are resolved from this script location.
 

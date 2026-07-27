@@ -1,18 +1,18 @@
 base_model: Qwen/Qwen2.5-Omni-7B
 
-acor_balanced:
+acomni_balanced:
   training_stage: emotion_preserving
   checkpoint_step: 500
   public_name: B500
 
-acor_affective:
+acomni_affective:
   operation: adapter_interpolation
   source_a: B500
   source_b: B700
   alpha: 0.20
 
-acor_repair:
-  base: acor_affective
+acomni_repair:
+  base: acomni_affective
   training_steps: 50
   selected_checkpoint_step: 20
   learning_rate: 5.0e-8
@@ -20,9 +20,9 @@ acor_repair:
     affective_context: 0.02
     emotion_consistency: 0.01
 
-acor_ar:
+acomni_ar:
   operation: adapter_interpolation
-  source_a: acor_affective
-  source_b: acor_repair_checkpoint_20
+  source_a: acomni_affective
+  source_b: acomni_repair_checkpoint_20
   lambda: 0.25
   internal_variant: pair_alpha20_repair20_lam025

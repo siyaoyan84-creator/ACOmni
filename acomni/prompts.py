@@ -1,4 +1,4 @@
-"""ACOR affective-context prompts and SFT target construction."""
+"""ACOmni affective-context prompts and SFT target construction."""
 
 from __future__ import annotations
 
@@ -32,7 +32,7 @@ def build_structured_target(context: str, reasoning: str, answer: str) -> str:
 
 
 def format_sft_sample(sample: Mapping[str, object]) -> dict:
-    """Convert a public sample record into the message format used by ACOR SFT."""
+    """Convert a public sample record into the message format used by ACOmni SFT."""
     question = str(sample.get("question", ""))
     options = sample.get("options")
     prompt = build_affective_prompt(question, options if isinstance(options, list) else None)
