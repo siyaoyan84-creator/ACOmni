@@ -1,4 +1,4 @@
-"""Public ACOR utilities."""
+"""Public ACOmni utilities."""
 
 from .response_parser import (
     extract_answer,

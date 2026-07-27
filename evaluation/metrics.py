@@ -1,4 +1,4 @@
-"""Dependency-light metrics shared by ACOR evaluations."""
+"""Dependency-light metrics shared by ACOmni evaluations."""
 
 from __future__ import annotations
 
@@ -26,9 +26,9 @@ def parse_valid(prediction: Sequence[str | None]) -> float:
     return sum(item is not None for item in prediction) / len(prediction) if prediction else 0.0
 
 
-def transition_counts(baseline: Sequence[bool], acor: Sequence[bool]) -> dict[str, int]:
+def transition_counts(baseline: Sequence[bool], acomni: Sequence[bool]) -> dict[str, int]:
     counts = Counter()
-    for before, after in zip(baseline, acor):
+    for before, after in zip(baseline, acomni):
         if not before and after:
             counts["corrected"] += 1
         elif before and not after:

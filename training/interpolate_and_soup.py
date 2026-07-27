@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Build ACOR-Affective or ACOR-A.R. from public adapter checkpoints."""
+"""Build ACOmni-Affective or ACOmni-A.R. from public adapter checkpoints."""
 
 from __future__ import annotations
 
 import argparse
 from pathlib import Path
 
-from acor.model_utils import adapter_soup, interpolate_adapters
+from acomni.model_utils import adapter_soup, interpolate_adapters
 
 
 def main() -> None:

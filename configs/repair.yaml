@@ -1,4 +1,4 @@
-base_variant: acor_affective
+base_variant: acomni_affective
 max_steps: 50
 selected_checkpoint_step: 20
 learning_rate: 5.0e-8

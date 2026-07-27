@@ -7,8 +7,8 @@ import argparse
 import json
 from pathlib import Path
 
-from acor.rewards import EMOTION_ALIASES
-from acor.response_parser import extract_answer, normalize_text
+from acomni.rewards import EMOTION_ALIASES
+from acomni.response_parser import extract_answer, normalize_text
 from evaluation.metrics import accuracy, macro_f1, parse_valid
 
 LABELS = ["anger", "joy", "sadness", "neutral", "worried", "surprise"]

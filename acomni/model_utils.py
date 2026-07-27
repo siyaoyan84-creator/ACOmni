@@ -1,4 +1,4 @@
-"""LoRA adapter interpolation and model-soup utilities used for ACOR variants."""
+"""LoRA adapter interpolation and model-soup utilities used for ACOmni variants."""
 
 from __future__ import annotations
 
